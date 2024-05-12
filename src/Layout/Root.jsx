@@ -5,7 +5,7 @@ import Navbar from "../Pages/Shared/Navbar/Navbar";
 
 const Root = () => {
     return (
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-[1170px] mx-auto font-lexend">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

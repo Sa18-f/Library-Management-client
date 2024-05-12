@@ -1,11 +1,53 @@
 import { FaEye } from "react-icons/fa";
 import SocialLogin from "../SocialLogin";
-import { ToastContainer } from "react-toastify";
-import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 
 
 const Login = () => {
+    const { loginUser } = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    // navigation system
+    const navigate = useNavigate();
+    const location = useLocation();
+    const form = location?.state;
+
+    const onSubmit = data => {
+        const { email, password } = data;
+        loginUser(email, password)
+            .then(result => {
+                if (result.user) {
+                    navigate(form);
+                    toast.success("Login successful");
+                }
+                else {
+                    toast.error("Invalid email or password")
+                }
+            })
+            .catch(error => {
+                console.error(error)
+                if (error.code === "auth/wrong-password") {
+                    console.log("Incorrect password");
+                    toast.error("Incorrect password");
+                } else if (error.code === "auth/user-not-found") {
+                    console.log("Email not found");
+                    toast.error("Email not found");
+                } else {
+                    console.log("An error occurred. Please try again later.", error);
+                    toast.error("An error occurred. Please try again later.");
+                }
+            })
+    }
     return (
         <div className="flex flex-col justify-around lg:flex-row mb-10 lg:p-10 p-2">
             <div>
@@ -13,21 +55,23 @@ const Login = () => {
             </div>
             <div className="lg:w-[450px]">
                 <h2 className="text-5xl font-bold text-center">Please Login</h2>
-                <form className="">
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
                     </div>
+                    {errors.email && <span className="text-red-500">Email does not matched</span>}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <div className="join">
-                            <input placeholder="password" name="password" className="w-full input input-bordered" required />
-                            <FaEye className="my-auto -ml-8" />
+                            <input type={showPassword ? 'text' : 'password'} placeholder="password" name="password" className="w-full input input-bordered" {...register("password")} required />
+                            <FaEye className="my-auto -ml-8" onClick={() => setShowPassword(!showPassword)} />
                         </div>
+                        {errors.password && <span className="text-red-500">{errors.password.message}</span>}
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 
 const Navbar = () => {
@@ -8,6 +9,7 @@ const Navbar = () => {
         <li><NavLink to="/allBooks">All Books</NavLink></li>
         <li><NavLink to="/borrowedBooks">Borrowed Books</NavLink></li>
     </>
+    const {logout, user} = useAuth();
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -28,21 +30,31 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end lg:gap-3">
-                    <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                {/* <img src={user?.photoURL || "https://i.ibb.co/LnFWKKk/download-8.jpg"} /> */}
-                            </div>
-                        </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                {/* <button className="btn btn-sm  btn-ghost">{user?.displayName || 'user name not found'}</button> */}
-                            </li>    
-                        </ul>
-                    </div>
-                    <Link to='/login'>
-                        <button className="btn">Login</button>
-                    </Link>
+                    {
+                        user ? <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user?.photoURL || "https://i.ibb.co/LnFWKKk/download-8.jpg"} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <button className="btn btn-sm  btn-ghost">{user?.displayName || 'user name not found'}</button>
+
+                                </li>
+                                <li>
+                                    <button
+                                        onClick={logout}
+                                        className="btn">Logout</button>
+
+                                </li>
+                            </ul>
+                        </div>
+                            :
+                            <Link to='/login'>
+                                <button className="btn">Login</button>
+                            </Link>
+                    }
                 </div>
             </div>
         </div>
