@@ -29,7 +29,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end lg:gap-3">
+                <div className="navbar-end lg:gap-3 z-50">
                     {
                         user ? <div className="dropdown dropdown-end">
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
