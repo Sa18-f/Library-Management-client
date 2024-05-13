@@ -1,5 +1,4 @@
 import { Link, useLoaderData } from "react-router-dom";
-// import PropTypes from 'prop-types';
 import Rating from 'react-rating';
 import { FaRegStar } from "react-icons/fa";
 import { MdStar } from "react-icons/md";
@@ -37,8 +36,5 @@ const BookDetails = () => {
         </div>
     );
 };
-// BookDetails.propTypes = {
-//     books: PropTypes.object.isRequired
-// }
 
 export default BookDetails;
