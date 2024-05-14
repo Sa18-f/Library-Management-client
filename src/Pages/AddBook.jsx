@@ -6,14 +6,14 @@ const AddBook = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const author_Name = form.author_Name.value;
+        const author_name = form.author_name.value;
         const content = form.content.value;
         const quantity = form.quantity.value;
         const category = form.category.value;
         const rating = form.rating.value;
         const description = form.description.value;
         const photo = form.photo.value;
-        const newBook = { name, author_Name, content, quantity, category, rating, description, photo };
+        const newBook = { name, author_name, content, quantity, category, rating, description, photo };
         console.log(newBook)
 
         fetch('http://localhost:3000/books', {
@@ -64,7 +64,7 @@ const AddBook = () => {
                             <span className="label-text">Author Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="author_Name" placeholder="Author Name" className="input input-bordered w-full" />
+                            <input type="text" name="author_name" placeholder="Author Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
