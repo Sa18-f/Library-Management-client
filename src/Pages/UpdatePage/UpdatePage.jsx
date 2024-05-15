@@ -101,7 +101,7 @@ const UpdatePage = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Update" className="btn btn-block bg-accent text-xl text-white font-bold" />
+                <input type="submit" value="Submit" className="btn btn-block bg-accent text-xl text-white font-bold" />
             </form>
         </div>
     );
