@@ -10,7 +10,7 @@ const BorrowedBooks = () => {
     useEffect(() => {
         if (user) {
             // Fetch user's borrow data from backend
-            fetch(`http://localhost:3000/borrow/${user?.email}`)
+            fetch(`https://library-management-system-server-sigma.vercel.app/borrow/${user?.email}`)
                 .then(res => res.json())
                 .then(data => setBorrow(data))
                 .catch(error => console.error('Error fetching user spots:', error));
@@ -28,7 +28,7 @@ const BorrowedBooks = () => {
             confirmButtonText: "Yes, return it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/borrow/${id}`, {
+                fetch(`https://library-management-system-server-sigma.vercel.app/borrow/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

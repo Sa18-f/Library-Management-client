@@ -35,7 +35,7 @@ const BookDetails = () => {
         const borrowsDate = formatDate(borrowDate);
         const returnDate = startDate;
         const borrowBook = { _id, userName, email, book_name, author_name, category, rating, photo, description, content, quantity, returnDate, borrowsDate };
-        fetch('http://localhost:3000/borrow', {
+        fetch('https://library-management-system-server-sigma.vercel.app/borrow', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

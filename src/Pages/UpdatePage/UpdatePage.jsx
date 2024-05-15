@@ -17,7 +17,7 @@ const UpdatePage = () => {
         const updatedBook = { book_name, author_name, category, rating, photo };
         console.log(updatedBook)
 
-        fetch(`http://localhost:3000/books/${_id}`, {
+        fetch(`https://library-management-system-server-sigma.vercel.app/books/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

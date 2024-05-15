@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch("http://localhost:3000/books")
+                loader: () => fetch("https://library-management-system-server-sigma.vercel.app/books")
             },
             {
                 path: "/login",
@@ -42,33 +42,33 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <BookDetails></BookDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://library-management-system-server-sigma.vercel.app/books/${params.id}`)
             },
             {
                 path: "/borrow",
                 element: <PrivateRoute>
                     <BorrowedBooks></BorrowedBooks>
                 </PrivateRoute>,
-                loader: () => fetch('http://localhost:3000/borrow')
+                loader: () => fetch('https://library-management-system-server-sigma.vercel.app/borrow')
             },
             {
                 path: "/allBooks",
                 element: <PrivateRoute>
                     <AllBooks></AllBooks>
                 </PrivateRoute>,
-                loader: () => fetch("http://localhost:3000/books")
+                loader: () => fetch("https://library-management-system-server-sigma.vercel.app/books")
             },
             {
                 path: '/updatePage/:id',
                 element: <PrivateRoute>
                     <UpdatePage></UpdatePage>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://library-management-system-server-sigma.vercel.app/books/${params.id}`)
             },
             {
                 path: '/allBooks/:category',
                 element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/allBooks/${params.category}`)
+                loader: ({ params }) => fetch(`https://library-management-system-server-sigma.vercel.app/allBooks/${params.category}`)
             }
         ]
     },
