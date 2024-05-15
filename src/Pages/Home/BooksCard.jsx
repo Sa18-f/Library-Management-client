@@ -16,7 +16,7 @@ const BooksCard = ({ books }) => {
                 </figure>
             </div>
             <div className='flex gap-3 pl-6 mt-2'>
-                <p className="bg-slate-100 border text-[#23BE0A] rounded-xl px-3 py-1"> {category}</p>
+                <Link to={`/allBooks/${category}`}><p className="bg-slate-100 border text-[#23BE0A] rounded-xl px-3 py-1"> {category}</p></Link>
             </div>
             <div className="card-body mt-[-20px]">
                 <div className='border-dashed border-b pb-4'>

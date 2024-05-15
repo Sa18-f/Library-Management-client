@@ -10,6 +10,7 @@ import AllBooks from "../Pages/AllBooks/AllBooks";
 import UpdatePage from "../Pages/UpdatePage/UpdatePage";
 import PrivateRoute from "../Components/PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import CategoryDetails from "../Pages/CategoryDetails";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,11 @@ const router = createBrowserRouter([
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
             },
+            {
+                path: '/allBooks/:category',
+                element: <PrivateRoute><CategoryDetails></CategoryDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/allBooks/${params.category}`)
+            }
         ]
     },
 ]);
