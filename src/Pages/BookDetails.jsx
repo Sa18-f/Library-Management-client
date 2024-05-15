@@ -146,9 +146,6 @@ const BookDetails = () => {
                         </div>
                         <input type="submit" value="Submit" className="btn btn-block bg-orange-500 text-xl text-white font-bold" />
                     </form>
-                    {/* <div className="mx-auto mt-4">
-                        <a href="#ticket-section-design" className="btn px-24 rounded-3xl text-white text-lg bg-[#1DD100]">Close</a>
-                    </div> */}
                 </div>
             </div>
         </div>
