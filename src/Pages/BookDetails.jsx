@@ -16,7 +16,7 @@ const BookDetails = () => {
     const [startDate, setStartDate] = useState(new Date());
     const books = useLoaderData();
     const navigate = useNavigate();
-    const { book_name, author_name, category, rating, photo, description, content, quantity } = books;
+    const { _id,book_name, author_name, category, rating, photo, description, content, quantity } = books;
     const ratingValue = rating;
 
 
@@ -34,7 +34,7 @@ const BookDetails = () => {
         const email = form.email.value;
         const borrowsDate = formatDate(borrowDate);
         const returnDate = startDate;
-        const borrowBook = { userName, email, book_name, author_name, category, rating, photo, description, content, quantity, returnDate, borrowsDate };
+        const borrowBook = { _id, userName, email, book_name, author_name, category, rating, photo, description, content, quantity, returnDate, borrowsDate };
         fetch('http://localhost:3000/borrow', {
             method: "POST",
             headers: {

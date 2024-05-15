@@ -9,11 +9,13 @@ import BorrowedBooks from "../Pages/BorrowedBooks/BorrowedBooks";
 import AllBooks from "../Pages/AllBooks/AllBooks";
 import UpdatePage from "../Pages/UpdatePage/UpdatePage";
 import PrivateRoute from "../Components/PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
