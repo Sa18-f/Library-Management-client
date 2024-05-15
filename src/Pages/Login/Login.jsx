@@ -17,7 +17,8 @@ const Login = () => {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    // navigation system
+
+    
     const navigate = useNavigate();
     const location = useLocation();
     const form = location?.state;
