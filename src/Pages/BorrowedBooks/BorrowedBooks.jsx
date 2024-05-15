@@ -25,7 +25,7 @@ const BorrowedBooks = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, return it!"
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:3000/borrow/${id}`, {
@@ -36,8 +36,8 @@ const BorrowedBooks = () => {
                         console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                title: "Returned!",
+                                text: "Your book has been returned.",
                                 icon: "success"
                             });
                         }

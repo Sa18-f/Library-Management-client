@@ -8,6 +8,7 @@ import BookDetails from "../Pages/BookDetails";
 import BorrowedBooks from "../Pages/BorrowedBooks/BorrowedBooks";
 import AllBooks from "../Pages/AllBooks/AllBooks";
 import UpdatePage from "../Pages/UpdatePage/UpdatePage";
+import PrivateRoute from "../Components/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,27 +30,37 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addBook",
-                element: <AddBook></AddBook>
+                element: <PrivateRoute>
+                    <AddBook></AddBook>
+                </PrivateRoute>
             },
             {
                 path: "/books/:id",
-                element: <BookDetails></BookDetails>,
-                loader: ({params}) => fetch(`http://localhost:3000/books/${params.id}`)
+                element: <PrivateRoute>
+                    <BookDetails></BookDetails>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
             },
             {
                 path: "/borrow",
-                element: <BorrowedBooks></BorrowedBooks>,
+                element: <PrivateRoute>
+                    <BorrowedBooks></BorrowedBooks>
+                </PrivateRoute>,
                 loader: () => fetch('http://localhost:3000/borrow')
             },
             {
                 path: "/allBooks",
-                element: <AllBooks></AllBooks>,
+                element: <PrivateRoute>
+                    <AllBooks></AllBooks>
+                </PrivateRoute>,
                 loader: () => fetch("http://localhost:3000/books")
             },
             {
                 path: '/updatePage/:id',
-                element: <UpdatePage></UpdatePage>,
-                loader: ({params}) => fetch(`http://localhost:3000/books/${params.id}`)
+                element: <PrivateRoute>
+                    <UpdatePage></UpdatePage>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
             },
         ]
     },

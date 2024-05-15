@@ -75,7 +75,7 @@ const BookDetails = () => {
                         icon: 'success',
                         confirmButtonText: 'Close'
                     });
-                    navigate("/");
+                    navigate("/borrow");
                 }
             })
             .catch(error => {
@@ -86,7 +86,7 @@ const BookDetails = () => {
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
-                navigate("/");
+                navigate("/borrow");
             });
     }
     return (

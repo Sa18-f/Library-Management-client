@@ -23,7 +23,7 @@ const AllBooks = () => {
             <div className="flex justify-center items-center mb-4">
                 <div className="relative">
                     <button className="btn bg-slate-800 text-white" onClick={handleSortByCost}>
-                        Sort by Rating {sortOrder === "asc" ? "↓" : "↑"}
+                        Show Available Books {sortOrder === "asc" ? "↓" : "↑"}
                     </button>
                 </div>
             </div>
