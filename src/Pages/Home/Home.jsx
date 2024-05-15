@@ -27,7 +27,7 @@ const Home = () => {
                 <Chart books={firstFourBooks} />
             </div>
             {/* founders word */}
-            <h1 className="text-3xl font-bold lg:my-12 my-2 text-center">Words from the Founder</h1>
+            <h1 className="text-5xl font-bold lg:my-12 my-2">Words from the Founder:</h1>
             <div className="my-8">
                 <img className="mx-auto rounded-lg" src="https://i.ibb.co/f09fjK3/3789.webp" alt="" />
             </div>
