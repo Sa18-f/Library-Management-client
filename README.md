@@ -14,6 +14,16 @@ Welcome to BookCare! This web application allows users to search for and explore
 - **Private Routes**: Certain routes, such as the update books page, are protected and can only be accessed by authenticated users.
 
 
+## Technologies Used
+- **React.js**: JavaScript library for building user interfaces, particularly for single-page applications.
+- **Node.js**: JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **Express**: Fast, unopinionated, minimalist web framework for Node.js.
+- **MongoDB**: NoSQL database for storing user data and bookings.
+- **Firebase Authentication**: Authentication system for secure user management.
+- **CORS**: Middleware to enable Cross-Origin Resource Sharing.
+- **dotenv**: Module to load environment variables from a .env file.
+
+
 ## npm Packages Used
 
 - `react`: JavaScript library for building user interfaces
