@@ -27,7 +27,7 @@ Welcome to BookCare! This web application allows users to search for and explore
 
 
 ## Getting Started
-1. Clone the repository: `git clone https://github.com/your-username/project-name.git`
-2. Navigate to the project directory: `cd project-name`
+1. Clone the repository: `git clone https://github.com/Sa18-f/Library-Management-client.git`
+2. Navigate to the project directory: `cd Book-Care`
 3. Install dependencies: `npm install`
 4. Start the project: `npm start`
